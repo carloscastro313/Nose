@@ -12,9 +12,13 @@ int main()
     int cantn=0;
     int cantc=0;
     int cantpares=0;
-    int promedioposiv=0;
-    int promedioneg=0;
     int resta;
+    int maximo;
+    int minimo;
+    int flag=0;
+    float promedioposiv=0;
+    float promedioneg=0;
+
     char respuesta;
 
 
@@ -55,9 +59,35 @@ int main()
             }
         }
 
+    if(flag==0)
+    {
+        flag=1;
+        maximo=numero;
+        minimo=numero;
 
+    }else
+    {
+        if(numero>maximo)
+        {
 
+            maximo=numero;
 
+        }else
+        {
+            if(numero<minimo)
+            {
+
+                minimo=numero;
+
+            }
+        }
+    }
+
+    /*if(flag==0||maximo<numero)
+    {
+        flag=1;
+        maximo=numero;
+    }*/
 
     fflush(stdin);
     printf("Desea continuar(s/n)");
@@ -68,14 +98,14 @@ int main()
     if(cantn!=0)
     {
 
-        promedioneg=negativos/cantn;
+        promedioneg=negativos/(float)cantn;
 
     }
 
     if(cantp!=0)
     {
 
-        promedioposiv=positivos/cantp;
+        promedioposiv=positivos/(float)cantp;
 
     }
 
@@ -89,8 +119,10 @@ int main()
     printf("cantidad de positivos: %d\n",cantp);
     printf("cantidad de numeros pares: %d\n",cantpares);
     printf("cantidad de ceros: %d\n",cantc);
-    printf("promedio de negativos: %d\n",promedioneg);
-    printf("promedio de positivos: %d\n",promedioposiv);
+    printf("promedio de negativos: %.2f\n",promedioneg);
+    printf("promedio de positivos: %.2f\n",promedioposiv);
+    printf("El maximo: %d\n",maximo);
+    printf("EL minimo: %d\n",minimo);
     printf("resta: %d",resta);
 
     return 0;
