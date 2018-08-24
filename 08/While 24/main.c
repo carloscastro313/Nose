@@ -12,16 +12,14 @@ int main()
     int cantn=0;
     int cantc=0;
     int cantpares=0;
-    int promedioposiv;
-    int promedioneg;
+    int promedioposiv=0;
+    int promedioneg=0;
     int resta;
     char respuesta;
 
-    fflush(stdin);
-    printf("Desea iniciar(s/n)");
-    scanf(" %c",&respuesta);
 
-    while(respuesta!='n')
+
+    do
     {
         contador++;
 
@@ -44,16 +42,18 @@ int main()
 
         if(numero==0)
         {
+
             cantc++;
+
         }else
         {
             if(numero%2==0)
             {
+
                 cantpares++;
+
             }
         }
-
-
 
 
 
@@ -63,10 +63,24 @@ int main()
     printf("Desea continuar(s/n)");
     scanf("%c",&respuesta);
 
+    }while(respuesta=='s');
+
+    if(cantn!=0)
+    {
+
+        promedioneg=negativos/cantn;
+
     }
 
-    promedioneg=negativos/cantn;
-    promedioposiv=positivos/cantp;
+    if(cantp!=0)
+    {
+
+        promedioposiv=positivos/cantp;
+
+    }
+
+
+
     resta=positivos-negativos;
 
     printf("suma de negativos: %d\n",negativos);
